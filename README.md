@@ -1,6 +1,7 @@
 # PROJECT DESCRIPTION
 This is a project for <a href="https://www.udacity.com/course/full-stack-web-developer-nanodegree--nd004"> Udacity Full Stack Web Developer Nanodegree</a>.
-In this project the web application "ItemCatalog" developed for Project 3 is deployed on a virtual server in Amazon rightsail instance.
+Take a baseline installation of a Linux server and prepare it to host my web applications.
+Secure my server from a number of attack vectors, install and configure a database server, and deployed one of my existing web application onto it.
 
 
 # IP address, URL and SSH port
