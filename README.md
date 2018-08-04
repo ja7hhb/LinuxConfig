@@ -5,7 +5,7 @@ Secure my server from a number of attack vectors, install and configure a databa
 
 
 # IP address, URL and SSH port
-URL http://34.228.178.57.xip.io
+URL http://itemcatalog.site
 
 IP address 34.228.178.57
 
