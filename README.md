@@ -134,7 +134,7 @@ from catalogApp import app as application
 
 Configure and Enable a New Virtual Host
 ```
-/etc/apache2/sites-available$ sudo nano catalogApp.conf
+sudo nano /etc/apache2/sites-available/catalogApp.conf
 ```
 Put bellow code
 ```
@@ -156,6 +156,12 @@ Put bellow code
 </VirtualHost>
 ```
 Some error fix about sqlite
+
+In catalogDB.py, catalogApp.py, setupDatabase.py file, change 
+```'sqlite:///catalog.db'``` 
+=>
+```'sqlite:////var/www/ItemCatalog/catalog.db'```
+
 
 In catalogDB.py, catalogApp.py file
 
