@@ -135,9 +135,12 @@ from catalogApp import app as application
 Configure and Enable a New Virtual Host
 ```
 /etc/apache2/sites-available$ sudo nano catalogApp.conf
+```
+Put bellow code
+```
 <VirtualHost *:80>
-    ServerName 34.228.178.57.xip.io
-    ServerAdmin admin@34.228.178.57.xip.io
+    ServerName 34.228.178.57
+    ServerAlias itemcatalog.site
     WSGIScriptAlias / /var/www/ItemCatalog/catalog.wsgi
     WSGIDaemonProcess ItemCatalog python-path=/var/www/ItemCatalog/venv/lib/python3.5/site-packages
 
@@ -153,38 +156,49 @@ Configure and Enable a New Virtual Host
 </VirtualHost>
 ```
 Some error fix about sqlite
-```
-$ sudo nano catalogDB.py catalogApp.py
-```
+
+In catalogDB.py, catalogApp.py file
+
 ADD
 ```
 from sqlalchemy.orm import scoped_session
+session = scoped_session(sessionmaker(bind=engine))
 ```
 Delete
 ```
 DBSession = sessionmaker(bind=engine)
 session = DBSession()
-session = scoped_session(sessionmaker(bind=engine))
 ```
+
+In catalogApp.py file line20 and line54, change 
+```'client_secrets.json'``` 
+=>
+```'/var/www/ItemCatalog/client_secrets.json'```
+
+
 Delete and recreate sqlite database
 ```
 $ sudo rm -r catalog.db
 $ python3 catalogDB.py
 ```
 
+## Restart Apache to launch the app
+```
+sudo service apache2 restart
+```
+
 ## Set up Google OAuth
-To set up Google OAuth, use wildcard DNS <a href="http://xip.io/?utm_medium=referral&utm_source=t.co"> xip.io </a>
 
 Add the follwoing URL in Authorized JavaScript origins
 ```
-http://34.228.178.57.xip.io
+http://itemcatalog.site
 ```
 Add the folloing URL in Authorized redirect URIs
 ```
-http://34.228.178.57.xip.io/login
-http://34.228.178.57.xip.io/gconnect
-http://34.228.178.57.xip.io/gdisconnect
-http://34.228.178.57.xip.io/oauth2callback
+http://itemcatalog.site/login
+http://itemcatalog.site/gconnect
+http://itemcatalog.site/gdisconnect
+http://itemcatalog.site/oauth2callback
 ```
 
 # Third party resources
