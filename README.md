@@ -111,8 +111,9 @@ Clone "ItemCatalog" repo and create virtial environment, install packages.
 ```
 $ cd /var/www
 $ sudo git clone https://github.com/ja7hhb/ItemCatalog.git
+$ cd ItemCatalog
 $ sudo apt-get install python3-pip
-$ sudo pip install virtualenv
+$ sudo pip3 install virtualenv
 $ sudo virtualenv venv
 $ source venv/bin/activate 
 $ sudo /var/www/ItemCatalog/venv/bin/pip install -r requirements.txt
