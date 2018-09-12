@@ -110,13 +110,13 @@ $ sudo apt-get install postgresql postgresql-contrib
 Clone "ItemCatalog" repo and create virtial environment, install packages.
 ```
 $ cd /var/www
-$ sudo git clone https://github.com/ja7hhb/ItemCatalog.git
-$ cd ItemCatalog
+$ sudo git clone https://github.com/ja7hhb/ItemCatalogApp.git
+$ cd ItemCatalogApp
 $ sudo apt-get install python3-pip
 $ sudo pip3 install virtualenv
 $ sudo virtualenv venv
 $ source venv/bin/activate 
-$ sudo /var/www/ItemCatalog/venv/bin/pip install -r requirements.txt
+$ sudo /var/www/ItemCatalogApp/venv/bin/pip install -r requirements.txt
 ```
 ## Configure server environment
 
