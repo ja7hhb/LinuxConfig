@@ -128,7 +128,7 @@ import sys
 import logging
 import os
 logging.basicConfig(stream=sys.stderr)
-sys.path.insert(0,"/var/www/ItemCatalog/")
+sys.path.insert(0,"/var/www/ItemCatalogApp/")
 
 from catalogApp import app as application
 ```
@@ -142,11 +142,11 @@ Put bellow code
 <VirtualHost *:80>
     ServerName 34.228.178.57
     ServerAlias itemcatalog.site
-    WSGIScriptAlias / /var/www/ItemCatalog/catalog.wsgi
-    WSGIDaemonProcess ItemCatalog python-path=/var/www/ItemCatalog/venv/lib/python3.5/site-packages
+    WSGIScriptAlias / /var/www/ItemCatalogApp/catalog.wsgi
+    WSGIDaemonProcess ItemCatalog python-path=/var/www/ItemCatalogApp/venv/lib/python3.5/site-packages
 
-    <Directory /var/www/ItemCatalog>
-        WSGIProcessGroup ItemCatalog
+    <Directory /var/www/ItemCatalogApp>
+        WSGIProcessGroup ItemCatalogApp
         WSGIApplicationGroup %{GLOBAL}
         Order deny,allow
         Allow from all
@@ -161,7 +161,7 @@ Some error fix about sqlite
 In catalogDB.py, catalogApp.py, setupDatabase.py file, change 
 ```'sqlite:///catalog.db'``` 
 =>
-```'sqlite:////var/www/ItemCatalog/catalog.db'```
+```'sqlite:////var/www/ItemCatalogApp/catalog.db'```
 
 
 In catalogDB.py, catalogApp.py file
@@ -180,7 +180,7 @@ session = DBSession()
 In catalogApp.py file line20 and line54, change 
 ```'client_secrets.json'``` 
 =>
-```'/var/www/ItemCatalog/client_secrets.json'```
+```'/var/www/ItemCatalogApp/client_secrets.json'```
 
 
 Delete and recreate sqlite database
